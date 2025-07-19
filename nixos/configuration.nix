@@ -102,6 +102,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.nix-ld.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -116,6 +118,7 @@
      signal-desktop
      qutebrowser
      vivaldi
+     nix-ld
 
      # terminal
      rio
@@ -167,6 +170,8 @@
      clang
      gcc
      uiua-unstable
+     deno
+     nodejs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
