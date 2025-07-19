@@ -1,0 +1,21 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+line-number = "relative"
+mouse = false
+auto-completion = true
+auto-save = true
+auto-format = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+enable = true
+auto-signature-help = true
+display-messages = true
