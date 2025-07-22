@@ -104,21 +104,39 @@
 
   programs.nix-ld.enable = true;
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-     brave
      zathura
      vlc
      busybox
      pciutils
      dconf-editor
      signal-desktop
+     nix-ld
+
      qutebrowser
      vivaldi
-     nix-ld
+
+     # containers
+     dive # look into docker image layers
+     podman-tui # status of containers in the terminal
+     podman-compose # start group of containers for dev
 
      # terminal
      rio
