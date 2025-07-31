@@ -10,7 +10,11 @@
       ./hardware-configuration.nix
     ];
 
+  # Use latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "mislav" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -129,6 +133,7 @@
      dconf-editor
      signal-desktop
      nix-ld
+     gnome-network-displays
 
      qutebrowser
      vivaldi
@@ -150,7 +155,7 @@
      jujutsu
      delta
      just
-     devbox
+     devenv
 
      zsh
      bash
@@ -173,6 +178,8 @@
      rustup
      uv
      ruff
+     python313Packages.python-lsp-server
+     python313Packages.jedi-language-server
      zig
      zls
      typescript-language-server
@@ -181,6 +188,7 @@
      vscode-langservers-extracted
      cmake-language-server
      bash-language-server
+     tailwindcss-language-server
      go
      gopls
      libclang
@@ -189,6 +197,7 @@
      gcc
      uiua-unstable
      deno
+     bun
      nodejs
   ];
 
