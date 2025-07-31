@@ -214,6 +214,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Open ports in the firewall for gnome-network-displays
+  networking.firewall.trustedInterfaces = [ "p2p-wl+" ]; # Or the name of your interface
+  networking.firewall.interfaces."p2p-wl+".allowedTCPPorts = [7236 7250 7251];
+  networking.firewall.interfaces."p2p-wl+".allowedUDPPorts = [5004 5005 7236 5353];
+  networking.firewall.interfaces."p2p-wl+".allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
