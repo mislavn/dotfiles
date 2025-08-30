@@ -1,24 +1,4 @@
 [[language]]
-name = "rust"
-auto-format = true
-
-roots = [
-  "Cargo.toml",
-  "Cargo.lock"
-]
-
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-
-[language-server.rust-analyzer]
-command = "rust-analyzer"
-
-
-[[language]]
 name = "uiua"
 scope = "source.uiua"
 file-types = ["ua"]
