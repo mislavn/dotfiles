@@ -93,7 +93,7 @@
   users.users.mislav = {
     isNormalUser = true;
     description = "mislav";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "tty" ];
     packages = with pkgs; [
     #  thunderbird
     ];
