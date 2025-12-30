@@ -95,7 +95,10 @@
     description = "mislav";
     extraGroups = [ "networkmanager" "wheel" "dialout" "tty" ];
     packages = with pkgs; [
-    #  thunderbird
+       protonvpn-gui
+       proton-pass
+       proton-authenticator
+       protonmail-desktop
     ];
     shell = pkgs.zsh;
   };
@@ -134,9 +137,14 @@
      signal-desktop
      nix-ld
      gnome-network-displays
+     cheese
+     wl-clipboard
 
      qutebrowser
      vivaldi
+
+     # AI
+     claude-code
 
      # containers
      dive # look into docker image layers
@@ -177,6 +185,8 @@
      # Programming
      rustup
      uv
+     cmake
+     gnumake
      ruff
      python313Packages.python-lsp-server
      python313Packages.jedi-language-server
@@ -199,6 +209,10 @@
      deno
      bun
      nodejs
+     protobuf
+
+     # touchpad scroll speed fix
+     libinput
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
