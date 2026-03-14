@@ -170,6 +170,7 @@
 
      htop
      fzf
+     rainfrog
 
      # Rust replacements
      ripgrep
@@ -208,6 +209,7 @@
      deno
      bun
      nodejs
+     pnpm
      protobuf
 
      # touchpad scroll speed fix
