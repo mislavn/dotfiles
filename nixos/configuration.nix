@@ -3,11 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./unstable.nix
     ];
 
   # Use latest kernel
@@ -163,7 +163,6 @@
      jujutsu
      delta
      just
-     devenv
 
      zsh
      bash
