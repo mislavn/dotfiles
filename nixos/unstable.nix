@@ -5,5 +5,8 @@ let
 in {
   environment.systemPackages = with pkgs; [
     unstable.devenv
+    unstable.zellij
+    unstable.vivaldi
+    unstable.vivaldi-ffmpeg-codecs
   ];
 }

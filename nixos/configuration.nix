@@ -111,7 +111,10 @@
 
   programs.nix-ld.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
@@ -127,8 +130,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    # fix vivaldi missing ffmpeg codes, link manually
+    (vivaldi.overrideAttrs (old: {
+      postInstall = ''
+        wrapProgram $out/bin/vivaldi \
+          --set LD_LIBRARY_PATH ${pkgs.vivaldi-ffmpeg-codecs}/lib
+      '';
+    }))
      zathura
      vlc
      busybox
@@ -141,7 +149,10 @@
      wl-clipboard
 
      qutebrowser
+     chromium
      vivaldi
+     vivaldi-ffmpeg-codecs
+     ffmpeg
 
      # AI
      claude-code
@@ -163,6 +174,7 @@
      jujutsu
      delta
      just
+     devenv
 
      zsh
      bash
@@ -171,6 +183,8 @@
      htop
      fzf
      rainfrog
+     television
+     tealdeer
 
      # Rust replacements
      ripgrep
